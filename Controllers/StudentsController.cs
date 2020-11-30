@@ -9,6 +9,7 @@ using Academia.Web.Data;
 
 namespace Academia.Web.Controllers
 {
+    [Route("data-student")]
     public class StudentsController : Controller
     {
         private readonly AcademiaWebContext _context;
@@ -24,6 +25,7 @@ namespace Academia.Web.Controllers
             return View(await _context.Student.ToListAsync());
         }
 
+        [Route("details/{id}")]
         // GET: Students/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -41,7 +43,7 @@ namespace Academia.Web.Controllers
 
             return View(student);
         }
-
+        [Route("create")]
         // GET: Students/Create
         public IActionResult Create()
         {
@@ -52,6 +54,7 @@ namespace Academia.Web.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Route("create")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Password,Email")] Student student)
         {
@@ -65,6 +68,7 @@ namespace Academia.Web.Controllers
         }
 
         // GET: Students/Edit/5
+        [Route("edit")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,6 +87,7 @@ namespace Academia.Web.Controllers
         // POST: Students/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Route("edit")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Password,Email")] Student student)
@@ -94,6 +99,7 @@ namespace Academia.Web.Controllers
 
             if (ModelState.IsValid)
             {
+                
                 try
                 {
                     _context.Update(student);
@@ -115,6 +121,7 @@ namespace Academia.Web.Controllers
             return View(student);
         }
 
+        [Route("delete")]
         // GET: Students/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -134,6 +141,7 @@ namespace Academia.Web.Controllers
         }
 
         // POST: Students/Delete/5
+        [Route("delete")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

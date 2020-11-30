@@ -56,7 +56,7 @@ namespace Academia.Web
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "new/{controller=Home}/new/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
             //app.UseMvc(routes =>
             //{

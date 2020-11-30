@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Academia.Web", "Academia.Web.csproj", "{545060C1-712E-4B4C-9BAF-D251E659017A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataMOdel", "DataMOdel", "{A5FFCD8C-635D-4F1F-ADE3-BA9D6D27FF60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleApp", "..\SampleApp\SampleApp.csproj", "{C6639F9C-CB04-4349-9CB4-61B17AC1E247}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +19,16 @@ Global
 		{545060C1-712E-4B4C-9BAF-D251E659017A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{545060C1-712E-4B4C-9BAF-D251E659017A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{545060C1-712E-4B4C-9BAF-D251E659017A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6639F9C-CB04-4349-9CB4-61B17AC1E247}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6639F9C-CB04-4349-9CB4-61B17AC1E247}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6639F9C-CB04-4349-9CB4-61B17AC1E247}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6639F9C-CB04-4349-9CB4-61B17AC1E247}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C6639F9C-CB04-4349-9CB4-61B17AC1E247} = {A5FFCD8C-635D-4F1F-ADE3-BA9D6D27FF60}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AF48FD76-8C99-467F-9821-66E4B3F97830}
