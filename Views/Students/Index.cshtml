@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Student>
+﻿@using Academia.Web.ViewModel
+
+@model IEnumerable<Student>
 
 @{
     Layout = "_Layout";
@@ -21,6 +23,12 @@
         <a class="dropdown-item" href="#">Something else here</a>
     </div>
 </div>*@
+@{ 
+    var drop = (DropDownViewModel)ViewBag.Drop;
+}
+
+@Html.Partial("~/Views/PartialView/DropDown.cshtml",drop)
+
 @{
         List<(string, string)> lists = new List<(string, string)>();
     lists.Add(("#", "One"));

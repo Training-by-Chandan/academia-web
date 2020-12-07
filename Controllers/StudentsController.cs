@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Academia.Web.Data;
+using Academia.Web.ViewModel;
 
 namespace Academia.Web.Controllers
 {
@@ -13,15 +14,32 @@ namespace Academia.Web.Controllers
     public class StudentsController : Controller
     {
         private readonly AcademiaWebContext _context;
+        private readonly AcademiaWebContext1 _context1;
+        private readonly AcademiaWebContext2 _context2;
+        private readonly AcademiaWebContext3 _context3;
+        private readonly AcademiaWebContext4 _context4=new AcademiaWebContext4(null);
 
-        public StudentsController(AcademiaWebContext context)
+        public StudentsController(AcademiaWebContext context, AcademiaWebContext1 context1, AcademiaWebContext2 context2, AcademiaWebContext3 context3)
         {
             _context = context;
+            _context1 = context1;
+            _context2 = context2;
+            _context3 = context3;
+           
         }
 
         // GET: Students
         public async Task<IActionResult> Index()
         {
+            List<DropDownItem> items = new List<DropDownItem>();
+            items.Add(new DropDownItem { Href = "#", ItemName = "One" });
+            items.Add(new DropDownItem { Href = "#", ItemName = "Two" });
+            items.Add(new DropDownItem { Href = "#", ItemName = "Three" });
+            items.Add(new DropDownItem { Href = "https://google.com", ItemName = "Google" });
+            DropDownViewModel drop = new DropDownViewModel() { Id="dropdown", Name="My DropDown", Items=items};
+
+            ViewBag.Drop = drop;
+
             return View(await _context.Student.ToListAsync());
         }
 
@@ -47,7 +65,25 @@ namespace Academia.Web.Controllers
         // GET: Students/Create
         public IActionResult Create()
         {
+            Func1();
+
+            ///.....
+            Func2();
+
+
+            ////
+            ///
+            _context3.Add(null);
             return View();
+        }
+
+        private void Func1()
+        {
+            _context1.Add(null);
+        }
+        private void Func2()
+        {
+            _context2.Add(null);
         }
 
         // POST: Students/Create

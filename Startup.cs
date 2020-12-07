@@ -27,7 +27,7 @@ namespace Academia.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            
             services.AddDbContext<AcademiaWebContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("AcademiaWebContext")));
             
