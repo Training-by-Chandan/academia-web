@@ -30,7 +30,8 @@ namespace Academia.Web
             
             services.AddDbContext<AcademiaWebContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("AcademiaWebContext")));
-            
+            //services.AddDbContext<NewWebContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("NewDatabaseConnectionString")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

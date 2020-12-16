@@ -1,26 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Threading.Tasks;
 
-public class Student
+namespace Academia.Web.Models
 {
-    public int Id {get;set;}
     
-    [Required(ErrorMessage ="The name of student is required")]
-    [StringLength(20, MinimumLength =5, ErrorMessage ="Maximum length should be {1}, minimum length should be {2}")]
-    [Display(Name="Student Name")]
-    public string Name {get;set;}
-    
-    [DataType(DataType.Password)]
-    [Display(Name="Student Passcode")]
-    [Required]
-    [RegularExpression("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^\\da-zA-Z]).{8,15}$", ErrorMessage = "Invalid password format")]
-    public string Password { get; set; }
+    public class Student
+    {
+        [Key]
+        public  int Id { get; set; }
+        public  string FirstName { get; set; }
+        public  string MiddleName { get; set; }
+        public  string LastName { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        public  string PhoneNumber { get; set; }
+        [DataType(DataType.EmailAddress)]
+        public  string Email { get; set; }
 
-    [DataType(DataType.Password)]
-    [Compare("Password",ErrorMessage ="The password and confirm password does not match.")]
-    public string ConfirmPassword { get; set; }
+        public  virtual  List<ParentStudent> ParentStudents { get; set; }
+    }
 
-    [DataType(DataType.EmailAddress)]
-    [Display(Name="Student Email Address")]
-    [Required]
-    public string Email { get; set; }
+    public class ParentStudent
+    {
+        [Key]
+        public int Id { get; set; }
+        public  int StudentId { get; set; }
+        public  int ParentId { get; set; }
+
+        [ForeignKey("StudentId")]
+        public  virtual  Student Student { get; set; }
+        [ForeignKey("ParentId")]
+        public  virtual  Parents Parent { get; set; }
+    }
 }

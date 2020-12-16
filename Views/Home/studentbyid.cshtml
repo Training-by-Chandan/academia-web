@@ -1,0 +1,23 @@
+﻿@model Student
+
+<table>
+    <thead>
+    <tr>
+        <th>Student Name</th>
+        <th>Father Name</th>
+        <th>Mother Name</th>
+    </tr>
+    </thead>
+    <tbody>
+   
+        <tr>
+
+            <td>
+                @Model.FirstName @Model.LastName
+            </td>
+            <td>@Model.ParentStudents.FirstOrDefault(p=>p.Parent.GuardianType== GuardianType.Father).Parent.FirstName</td>
+            <td>@Model.ParentStudents.FirstOrDefault(p=>p.Parent.GuardianType== GuardianType.Mother).Parent.FirstName</td>
+        </tr>
+   
+    </tbody>
+</table>

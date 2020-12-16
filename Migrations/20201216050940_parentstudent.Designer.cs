@@ -3,14 +3,16 @@ using Academia.Web.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Academia.Web.Migrations
 {
     [DbContext(typeof(AcademiaWebContext))]
-    partial class AcademiaWebContextModelSnapshot : ModelSnapshot
+    [Migration("20201216050940_parentstudent")]
+    partial class parentstudent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

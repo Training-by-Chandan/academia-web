@@ -1,0 +1,33 @@
+﻿@model List<Student>
+
+<table>
+    <thead>
+    <tr>
+        <th>Student Name</th>
+        <th>Father Name</th>
+        <th>Mother Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var student in Model)
+    {
+        <tr>
+
+            <td>
+                @student.FirstName @student.LastName
+            </td>
+            <td>@student.ParentStudents.FirstOrDefault(p=>p.Parent.GuardianType== GuardianType.Father).Parent.FirstName</td>
+            <td>@student.ParentStudents.FirstOrDefault(p=>p.Parent.GuardianType== GuardianType.Mother).Parent.FirstName</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready( function () {
+            $('table').DataTable();
+        } );
+    </script>
+}
