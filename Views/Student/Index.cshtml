@@ -1,0 +1,25 @@
+﻿@model List<Student>
+
+<table>
+    <thead>
+    <tr>
+        <th>Student Name</th>
+        <th>Student Email</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var student in Model)
+    {
+        <tr>
+            <td>@student.FirstName @student.MiddleName @student.LastName</td>
+            <td>@student.Email</td>
+            <td>
+                <a href="@Url.Action("Edit","Student", new{Id=student.Id})">Edit</a>
+                <a href="@Url.Action("Delete","Student", new{Id=student.Id})">Delete</a>
+                <a href="@Url.Action("Details","Student", new{Id=student.Id})">Details</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

@@ -19,7 +19,6 @@
     <Folder Include="Areas\StudentArea\Data\" />
     <Folder Include="Areas\StudentArea\Models\" />
     <Folder Include="Areas\StudentArea\Views\" />
-    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,6 @@
+﻿@{
+    int id = ViewBag.Id;
+}
+Are you Sure you want to delete this?
+<a href="@Url.Action("Delete","Student", new{Id=id, confirm=true})">Delete</a>
+<a href="@Url.Action("Index","Student")">Back to List</a>

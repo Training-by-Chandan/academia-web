@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Academia.Web.Contracts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Academia.Web.Data;
+using Academia.Web.Service;
 
 namespace Academia.Web
 {
@@ -30,6 +32,9 @@ namespace Academia.Web
             
             services.AddDbContext<AcademiaWebContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("AcademiaWebContext")));
+
+            // DI
+            services.AddTransient<IStudentService, StudentService>();
             //services.AddDbContext<NewWebContext>(options =>
             //    options.UseSqlServer(Configuration.GetConnectionString("NewDatabaseConnectionString")));
         }
