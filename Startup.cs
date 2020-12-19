@@ -35,6 +35,10 @@ namespace Academia.Web
 
             // DI
             services.AddTransient<IStudentService, StudentService>();
+            services.AddTransient<IParentService, ParentService>();
+            services.AddTransient<IParentStudentService, ParentStudentService>();
+
+            services.AddTransient<IStudentParentService, StudentParentService>();
             //services.AddDbContext<NewWebContext>(options =>
             //    options.UseSqlServer(Configuration.GetConnectionString("NewDatabaseConnectionString")));
         }

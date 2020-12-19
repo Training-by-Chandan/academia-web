@@ -1,1 +1,12 @@
-﻿This is Details page of student
+﻿@model Student
+
+<div class="col-lg-12">
+    <div class="row">
+        <div class="col-lg-6">Name</div>
+        <div class="col-lg-6">@Model.FirstName @Model.MiddleName @Model.LastName</div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">Email</div>
+        <div class="col-lg-6">@Model.Email</div>
+    </div>
+</div>

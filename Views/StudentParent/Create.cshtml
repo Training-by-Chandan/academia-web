@@ -1,0 +1,39 @@
+﻿@model Academia.Web.ViewModel.StudentParentViewModel
+
+<form method="post" asp-action="Create" asp-controller="StudentParent">
+    
+    
+    <div clas="row">
+        Student Details 
+    </div>
+    <div clas="row">
+        <input asp-for="StudentFirstName"/>
+        <input asp-for="StudentMiddleName"/>
+        <input asp-for="StudentLastName"/>
+        <input asp-for="StudentEmail"/>
+
+    </div>
+    <div clas="row">
+        Father Details 
+    </div>
+    <div clas="row">
+        <input asp-for="FatherFirstName"/>
+        <input asp-for="FatherMiddleName"/>
+        <input asp-for="FatherLastName"/>
+        <input asp-for="FatherPhoneNumber"/>
+    </div>
+    <div clas="row">
+        Mother Details 
+    </div>
+    <div clas="row">
+        <input asp-for="MotherFirstName"/>
+        <input asp-for="MotherMiddleName"/>
+        <input asp-for="MotherLastName"/>
+        <input asp-for="MotherPhoneNumber"/>
+    </div>
+
+
+    
+
+    <input type="submit"/>
+</form>

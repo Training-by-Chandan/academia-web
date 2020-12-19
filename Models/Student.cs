@@ -23,16 +23,5 @@ namespace Academia.Web.Models
         public  virtual  List<ParentStudent> ParentStudents { get; set; }
     }
 
-    public class ParentStudent
-    {
-        [Key]
-        public int Id { get; set; }
-        public  int StudentId { get; set; }
-        public  int ParentId { get; set; }
-
-        [ForeignKey("StudentId")]
-        public  virtual  Student Student { get; set; }
-        [ForeignKey("ParentId")]
-        public  virtual  Parents Parent { get; set; }
-    }
+    
 }

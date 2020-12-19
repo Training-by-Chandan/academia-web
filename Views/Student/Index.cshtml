@@ -1,4 +1,5 @@
 ﻿@model List<Student>
+                <a href="@Url.Action("Create","Student")">Create</a>
 
 <table>
     <thead>
@@ -23,3 +24,13 @@
     }
     </tbody>
 </table>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready( function () {
+            $('table').DataTable();
+        } );
+    </script>
+}

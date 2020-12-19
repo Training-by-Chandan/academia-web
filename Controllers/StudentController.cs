@@ -69,9 +69,36 @@ namespace Academia.Web.Controllers
          
 
         [HttpGet]
-        public IActionResult Details(int Id)
+        public async Task<IActionResult> Details(int Id)
+        {
+            var student=await this.studentService.GetById(Id);
+            if(student!=null)
+            {
+
+                return View(student);
+            }
+            else{
+                 return View("Error", new ErrorViewModel());
+            }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Student model)
+        {
+            var result=await this.studentService.Create(model);
+            if (result)
+            {
+                return RedirectToAction("Index");
+            }
+            else{
+                return View(model);
+            }
         }
     }
 }

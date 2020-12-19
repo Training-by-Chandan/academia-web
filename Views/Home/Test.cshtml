@@ -16,8 +16,17 @@
             <td>
                 @student.FirstName @student.LastName
             </td>
+            @if (student.ParentStudents.Count != 0)
+            {
+
             <td>@student.ParentStudents.FirstOrDefault(p=>p.Parent.GuardianType== GuardianType.Father).Parent.FirstName</td>
             <td>@student.ParentStudents.FirstOrDefault(p=>p.Parent.GuardianType== GuardianType.Mother).Parent.FirstName</td>
+            }
+            else
+            {
+                <td></td>
+                <td></td>
+            }
         </tr>
     }
     </tbody>
